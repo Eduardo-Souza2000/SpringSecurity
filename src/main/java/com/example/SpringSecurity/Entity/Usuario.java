@@ -16,4 +16,10 @@ public class Usuario {
     @Column(name = "id", nullable = false, unique = true)
     private Long id;
 
+    @Column(name = "nome", length = 50, nullable = false)
+    private String name;
+
+    @Column(name = "senha", length = 50, nullable = false)
+    private String senha;
+
 }
