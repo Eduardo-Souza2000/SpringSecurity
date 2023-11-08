@@ -1,7 +1,8 @@
-package com.example.SpringSecurity.security;
+package com.example.SpringSecurity.Security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -18,17 +19,23 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 @EnableMethodSecurity
 public class SecurityConfig {
-    @Bean
+
+
+
+
+   @Bean
     SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
                 .cors(cors -> cors.disable())
                 .authorizeHttpRequests(auth->auth
                         .requestMatchers("/livre").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/usuario").permitAll()
                         .anyRequest().authenticated());
                         http.httpBasic(Customizer.withDefaults());
 
         return http.build();
     }
+
 
     @Bean
     static PasswordEncoder psEncode(){

@@ -1,6 +1,6 @@
-package com.example.igrejaPresbiterianaapi.controller.exeptions;
+package com.example.SpringSecurity.Controller.exeptions;
 
-import com.example.igrejaPresbiterianaapi.config.ErrorHandle;
+import com.example.SpringSecurity.config.ErrorHandle;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
