@@ -8,16 +8,18 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequestMapping ("/token")
 public class TokenController {
-    @Autowired
-    private AuthenticationManager authenticationManager;
+    //@Autowired
+    //private AuthenticationManager authenticationManager;
 
     @Autowired
     private TokenService tokenService;
-
+/*
     @PostMapping("/login")
     public String login(@RequestBody LoginDTO login){
         UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken =
@@ -28,6 +30,6 @@ public class TokenController {
         var usuario = (Usuario) authentication.getPrincipal();
 
         return tokenService.gerarToken(usuario);
-    };
+    };*/
 
 }

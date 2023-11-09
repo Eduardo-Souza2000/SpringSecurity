@@ -12,7 +12,6 @@ import com.example.SpringSecurity.config.message.handling.ErrorMessages;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.ErrorManager;
 
 @Service
 public class UsuarioService {

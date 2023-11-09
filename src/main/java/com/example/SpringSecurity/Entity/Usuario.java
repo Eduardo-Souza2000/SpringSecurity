@@ -17,6 +17,9 @@ import java.util.List;
 @NoArgsConstructor
 @Getter @Setter
 public class Usuario  implements UserDetails {
+
+    //private static final long serial
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Getter @Setter
