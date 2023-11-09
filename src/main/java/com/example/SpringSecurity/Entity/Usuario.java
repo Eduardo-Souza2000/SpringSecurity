@@ -26,10 +26,10 @@ public class Usuario  implements UserDetails {
     @Column(name = "id", nullable = false, unique = true)
     private Long id;
 
-    @Column(name = "login", length = 50, nullable = false)
+    @Column(name = "login", length = 250, nullable = false)
     private String login;
 
-    @Column(name = "senha", length = 50, nullable = false)
+    @Column(name = "senha", length = 250, nullable = false)
     private String senha;
 
     @Override

@@ -24,9 +24,10 @@ public class SecurityConfig {
    @Bean
     SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
+                .csrf(csrf -> csrf.disable())
                 .cors(cors -> cors.disable())
                 .authorizeHttpRequests(auth->auth
-                        .requestMatchers("/livre").permitAll()
+                        //.requestMatchers("/livre").permitAll()
                         .requestMatchers(HttpMethod.POST, "/usuario").permitAll()
                         .anyRequest().authenticated())
                         .httpBasic(Customizer.withDefaults());

@@ -6,6 +6,8 @@ import com.example.SpringSecurity.Repository.UsuarioRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import com.example.SpringSecurity.config.message.handling.ErrorMessages;
 
@@ -19,6 +21,9 @@ public class UsuarioService {
     UsuarioRepository repository;
     @Autowired
     private ModelMapper modelMapper;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     public UsuarioDTO findById(Long id){
 
@@ -38,8 +43,13 @@ public class UsuarioService {
         }
         return usuarioDTOS;
     }
-
+/*
     public void cadastrar(UsuarioDTO usuarioDTO){
+        this.repository.save(modelMapper.map(usuarioDTO, Usuario.class));
+    }*/
+    public void cadastrar(UsuarioDTO usuarioDTO){
+        // Encode the password before saving to the database
+        usuarioDTO.setSenha(passwordEncoder.encode(usuarioDTO.getSenha()));
         this.repository.save(modelMapper.map(usuarioDTO, Usuario.class));
     }
 

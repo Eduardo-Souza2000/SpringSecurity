@@ -28,6 +28,11 @@ public class UsuarioController {
         }
     }
 
+    @GetMapping("logado")
+    public String administrador(){
+        return "Acessos administrador Logado";
+    }
+
     @GetMapping("/listas")
     public ResponseEntity<List<UsuarioDTO>> findAll(){
         try {
